@@ -1,0 +1,88 @@
+.CreateInvoice {
+	max-width: calc(var(--sds-window-width-max) * 0.75);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.hero {
+	text-align: center;
+	margin: 3rem auto 1rem;
+	max-width: 640px;
+}
+.hero h1 {
+	font-weight: normal;
+	font-size: 2.4rem;
+	margin-bottom: 0.5rem;
+}
+.hero p {
+	color: var(--sds-clr-gray-11);
+	line-height: 1.5;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 1rem;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+}
+
+.actions {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 0.5rem;
+}
+
+.hint {
+	color: var(--sds-clr-gray-10);
+	font-size: 0.9rem;
+}
+
+.payLink {
+	font-family: "Inconsolata", monospace;
+	background: var(--sds-clr-gray-03);
+	padding: 0.75rem 1rem;
+	border-radius: 6px;
+	word-break: break-all;
+	color: var(--sds-clr-lilac-11);
+}
+
+.howItWorks {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+
+.howItWorks h3 {
+	margin: 0.5rem 0 0.25rem;
+	font-size: 1rem;
+}
+
+.howItWorks p {
+	color: var(--sds-clr-gray-11);
+	font-size: 0.9rem;
+	line-height: 1.4;
+}
+
+@media (max-width: 720px) {
+	.row {
+		grid-template-columns: 1fr;
+	}
+	.howItWorks {
+		grid-template-columns: 1fr;
+	}
+}

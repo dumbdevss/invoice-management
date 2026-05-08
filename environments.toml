@@ -11,6 +11,7 @@ default = true # Optional. Whether to use this account as the `--source` for com
 [development.contracts]
 fungible_allowlist_example = { client = true, constructor_args = "--name ExampleToken --symbol EXT --admin me --manager me --initial_supply 1000000000000000000000000" }
 nft_enumerable_example = { client = true, constructor_args = "--uri https://example.com/nft/ --name ExampleNFT --symbol ENFT --owner me" }
+stellar_invoice = { client = true }
 
 # Rather than in one list, TOML allows specifying contracts in their own "sections"
 [development.contracts.guess_the_number]
@@ -84,6 +85,7 @@ default = true
 # soroban-token-contract = { id = "C678..." }
 # eurc = { id = "C789..." }
 guess_the_number = { client = true, constructor_args = "--admin me", after_deploy = "reset" }
+stellar_invoice = { client = true }
 
 ### Production environment configuration
 [production.network]

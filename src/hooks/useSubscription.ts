@@ -113,5 +113,5 @@ export function useSubscription(
 			if (timeoutId != null) clearTimeout(timeoutId)
 			stop = true
 		}
-	}, [contractId, topic, onEvent, id, pollInterval])
+	}, [contractId, topic, onEvent, id, pollInterval, page])
 }

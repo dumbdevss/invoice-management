@@ -1504,6 +1504,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "stellar-invoice"
+version = "0.0.1"
+dependencies = [
+ "soroban-sdk",
+]
+
+[[package]]
 name = "stellar-macros"
 version = "0.6.0"
 source = "git+https://github.com/OpenZeppelin/stellar-contracts?tag=v0.6.0#82f97111f9568d32653dd5b3563baf5b73509c89"

@@ -1,0 +1,126 @@
+.PayInvoice {
+	max-width: 640px;
+	margin: 4rem auto;
+}
+
+.header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.label {
+	display: block;
+	color: var(--sds-clr-gray-10);
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 0.25rem;
+}
+
+.header h1 {
+	font-size: 1.4rem;
+	font-family: "Inconsolata", monospace;
+	margin: 0;
+	word-break: break-all;
+}
+
+.badge {
+	padding: 0.25rem 0.75rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+}
+.badge.pending {
+	background: var(--sds-clr-amber-04);
+	color: var(--sds-clr-amber-11);
+}
+.badge.paid {
+	background: var(--sds-clr-green-04);
+	color: var(--sds-clr-green-11);
+}
+.badge.cancelled {
+	background: var(--sds-clr-gray-04);
+	color: var(--sds-clr-gray-11);
+}
+
+.amount {
+	display: flex;
+	align-items: baseline;
+	gap: 0.75rem;
+	margin: 1rem 0;
+}
+.big {
+	font-size: 3rem;
+	font-weight: 600;
+	color: var(--sds-clr-gray-12);
+}
+.asset {
+	font-size: 1.25rem;
+	color: var(--sds-clr-gray-11);
+}
+
+.memo {
+	color: var(--sds-clr-gray-11);
+	font-style: italic;
+	margin-bottom: 1.5rem;
+}
+
+.meta {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	padding: 1rem 0;
+	border-top: 1px solid var(--sds-clr-gray-06);
+	border-bottom: 1px solid var(--sds-clr-gray-06);
+	margin-bottom: 1.5rem;
+}
+@media (max-width: 540px) {
+	.meta {
+		grid-template-columns: 1fr;
+	}
+}
+
+.mono {
+	font-family: "Inconsolata", monospace;
+	color: var(--sds-clr-lilac-11);
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 2rem 1rem;
+	text-align: center;
+}
+
+.hint {
+	color: var(--sds-clr-gray-10);
+	text-align: center;
+}
+
+.paidBanner,
+.cancelledBanner {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1rem;
+	border-radius: 6px;
+}
+.paidBanner {
+	background: var(--sds-clr-green-04);
+	color: var(--sds-clr-green-11);
+}
+.cancelledBanner {
+	background: var(--sds-clr-gray-04);
+	color: var(--sds-clr-gray-11);
+}

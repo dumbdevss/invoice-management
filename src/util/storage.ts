@@ -23,14 +23,13 @@ type Schema = {
  * Implementation has been borrowed and simplified from https://www.npmjs.com/package/typed-local-store
  */
 class TypedStorage<T> {
-	private readonly storage: Storage
-
-	constructor() {
-		this.storage = localStorage
+	private get storage(): Storage | null {
+		if (typeof window === "undefined") return null
+		return window.localStorage
 	}
 
 	public get length(): number {
-		return this.storage?.length
+		return this.storage?.length ?? 0
 	}
 
 	public key<U extends keyof T>(index: number): U {
@@ -41,10 +40,10 @@ class TypedStorage<T> {
 		key: U,
 		retrievalMode: "fail" | "raw" | "safe" = "fail",
 	): T[U] | null {
-		const item = this.storage?.getItem(key.toString())
+		const item = this.storage?.getItem(key.toString()) ?? null
 
 		if (item == null) {
-			return item
+			return null
 		}
 
 		try {

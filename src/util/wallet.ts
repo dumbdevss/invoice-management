@@ -8,9 +8,34 @@ import { Horizon } from "@stellar/stellar-sdk"
 import { networkPassphrase, stellarNetwork } from "../contracts/util"
 import storage from "./storage"
 
-const kit: StellarWalletsKit = new StellarWalletsKit({
-	network: networkPassphrase as WalletNetwork,
-	modules: allowAllModules(),
+let _kit: StellarWalletsKit | null = null
+
+function getKit(): StellarWalletsKit {
+	if (typeof window === "undefined") {
+		// SSR-safe stub. Real instance is only ever created in the browser.
+		return {
+			openModal: async () => {},
+			disconnect: async () => {},
+			setWallet: () => {},
+			getAddress: async () => ({ address: "" }),
+			getNetwork: async () => ({ network: "", networkPassphrase: "" }),
+			signTransaction: async () => ({ signedTxXdr: "", signerAddress: "" }),
+		} as unknown as StellarWalletsKit
+	}
+	if (!_kit) {
+		_kit = new StellarWalletsKit({
+			network: networkPassphrase as WalletNetwork,
+			modules: allowAllModules(),
+		})
+	}
+	return _kit
+}
+
+const kit: StellarWalletsKit = new Proxy({} as StellarWalletsKit, {
+	get(_target, prop) {
+		// @ts-expect-error - dynamic forwarding to real kit
+		return getKit()[prop]
+	},
 })
 
 export const connectWallet = async () => {
